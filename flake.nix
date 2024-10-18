@@ -18,6 +18,7 @@
     packages.${system} = {
       autofirma = import ./autofirma {pkgs = unstable-pkgs;};
       catapult = import ./catapult {inherit pkgs;};
+      openfortivpn-webview-qt = import ./openfortivpn-webview {inherit pkgs;};
     };
   };
 }
