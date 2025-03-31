@@ -21,11 +21,12 @@ with pkgs;
       mkdir -p $out/bin
 
       echo "#!/bin/bash\njava -Djdk.tls.maxHandshakeMessageSize=65536 -jar /usr/lib/AutoFirma/AutoFirma.jar "$@"" > autofirma
+      cat afirma-simple-installer/linux/instalador_deb/src/etc/firefox/pref/AutoFirma.js | sed "s|/usr|$out|g" > autofirma.js
 
       install -Dm644 autofirma $out/bin/autofirma
 
       mkdir -p $out/usr/lib/firefox/defaults/pref
-      install -Dm644 afirma-simple-installer/linux/instalador_deb/src/etc/firefox/pref/AutoFirma.js \
+      install -Dm644 autofirma.js\
         $out/usr/lib/firefox/defaults/pref/autofirma.js
 
       mkdir -p $out/usr/share/java/autofirma
@@ -36,8 +37,8 @@ with pkgs;
       install -Dm644 afirma-simple-installer/linux/instalador_deb/src/usr/share/AutoFirma/AutoFirma.svg \
         $out/usr/share/pixmaps/autofirma.svg
 
-      mkdir -p $out/usr/share/application
-      install -Dm644 afirma-simple-installer/linux/instalador_deb/src/usr/share/applications/afirma.desktop \
+      mkdir -p $out/usr/share/applications
+      install -Dm644 \
         $out/usr/share/applications/autofirma.desktop
 
       mkdir -p $out/usr/share/licenses
