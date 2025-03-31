@@ -22,7 +22,7 @@ with pkgs;
 
       echo "#!/bin/bash\njava -Djdk.tls.maxHandshakeMessageSize=65536 -jar /usr/lib/AutoFirma/AutoFirma.jar "$@"" > autofirma
       cat afirma-simple-installer/linux/instalador_deb/src/etc/firefox/pref/AutoFirma.js | sed "s|/usr|$out|g" > autofirma.js
-      cat afirma-simple-installer/linux/instalador_deb/src/usr/share/applications/afirma.desktop | sed "s|/usr|$out" > autofirma.desktop
+      cat afirma-simple-installer/linux/instalador_deb/src/usr/share/applications/afirma.desktop | sed "s|/usr|$out|" > autofirma.desktop
 
       install -Dm644 autofirma $out/bin/autofirma
 
