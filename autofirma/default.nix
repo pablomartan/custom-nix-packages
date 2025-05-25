@@ -26,9 +26,9 @@ with pkgs;
 
       install -Dm644 autofirma $out/bin/autofirma
 
-      mkdir -p $out/usr/lib/firefox/defaults/pref
+      mkdir -p $out/lib/firefox/defaults/pref
       install -Dm644 autofirma.js\
-        $out/usr/lib/firefox/defaults/pref/autofirma.js
+        $out/lib/firefox/defaults/pref/autofirma.js
 
       mkdir -p $out/usr/share/java/autofirma
       install -Dm644 afirma-simple/target/AutoFirma.jar \
@@ -38,9 +38,9 @@ with pkgs;
       install -Dm644 afirma-simple-installer/linux/instalador_deb/src/usr/share/AutoFirma/AutoFirma.svg \
         $out/usr/share/pixmaps/autofirma.svg
 
-      mkdir -p $out/usr/share/applications
+      mkdir -p $out/share/applications
       install -Dm644 autofirma.desktop \
-        $out/usr/share/applications/autofirma.desktop
+        $out/share/applications/autofirma.desktop
 
       mkdir -p $out/usr/share/licenses
       install -Dm644 afirma-simple-installer/linux/instalador_deb/src/usr/share/common-licenses/* \
